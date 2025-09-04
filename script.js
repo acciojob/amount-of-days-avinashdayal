@@ -1,23 +1,9 @@
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-// Function to return days in a given year
-function days_of_a_year(year) {
-  return isLeapYear(year) ? 366 : 365;
-}
-
-// Function to check leap year
-function isLeapYear(year) {
-  return year % 400 === 0 || (year % 100 !== 0 && year % 4 === 0);
-}
-
-// Take input
-rl.question(' ', (input) => {
+rl.question('Enter a year: ', (input) => {
   const year = parseInt(input);
-  console.log(` ${year}: ${days_of_a_year(year)}`);
+  if (isNaN(year) || year < 1 || year > 9999) {
+    console.log("Please enter a valid year between 1 and 9999.");
+  } else {
+    console.log(`The year ${year} has ${days_of_a_year(year)} days.`);
+  }
   rl.close();
 });
