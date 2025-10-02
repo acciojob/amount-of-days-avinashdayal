@@ -1,5 +1,10 @@
 const readline = require("readline");
 
+function getDaysInYear(year) {
+  const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+  return isLeap ? 366 : 365;
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -14,8 +19,3 @@ rl.question('Enter a year: ', (input) => {
   }
   rl.close();
 });
-
-function getDaysInYear(year) {
-  const isLeap = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-  return isLeap ? 366 : 365;
-}
