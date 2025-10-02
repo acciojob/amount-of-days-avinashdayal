@@ -7,3 +7,8 @@ rl.question('Enter a year: ', (input) => {
   }
   rl.close();
 });
+function getDaysInYear(year){
+	const isleap = (year%4===0 && year%100 !===0)|| (year % 400 === 0);
+
+  return isLeap ? 366 : 365;
+}
